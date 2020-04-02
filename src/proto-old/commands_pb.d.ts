@@ -94,30 +94,6 @@ export namespace AddSignatory {
   }
 }
 
-export class EngineCall extends jspb.Message {
-  getCallee(): string;
-  setCallee(value: string): void;
-
-  getInput(): string;
-  setInput(value: string): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): EngineCall.AsObject;
-  static toObject(includeInstance: boolean, msg: EngineCall): EngineCall.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: EngineCall, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): EngineCall;
-  static deserializeBinaryFromReader(message: EngineCall, reader: jspb.BinaryReader): EngineCall;
-}
-
-export namespace EngineCall {
-  export type AsObject = {
-    callee: string,
-    input: string,
-  }
-}
-
 export class CreateAsset extends jspb.Message {
   getAssetName(): string;
   setAssetName(value: string): void;
@@ -496,30 +472,6 @@ export namespace CompareAndSetAccountDetail {
   }
 }
 
-export class SetSettingValue extends jspb.Message {
-  getKey(): string;
-  setKey(value: string): void;
-
-  getValue(): string;
-  setValue(value: string): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SetSettingValue.AsObject;
-  static toObject(includeInstance: boolean, msg: SetSettingValue): SetSettingValue.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SetSettingValue, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SetSettingValue;
-  static deserializeBinaryFromReader(message: SetSettingValue, reader: jspb.BinaryReader): SetSettingValue;
-}
-
-export namespace SetSettingValue {
-  export type AsObject = {
-    key: string,
-    value: string,
-  }
-}
-
 export class Command extends jspb.Message {
   hasAddAssetQuantity(): boolean;
   clearAddAssetQuantity(): void;
@@ -535,11 +487,6 @@ export class Command extends jspb.Message {
   clearAddSignatory(): void;
   getAddSignatory(): AddSignatory | undefined;
   setAddSignatory(value?: AddSignatory): void;
-
-  hasEngineCall(): boolean;
-  clearEngineCall(): void;
-  getEngineCall(): EngineCall | undefined;
-  setEngineCall(value?: EngineCall): void;
 
   hasAppendRole(): boolean;
   clearAppendRole(): void;
@@ -616,11 +563,6 @@ export class Command extends jspb.Message {
   getCompareAndSetAccountDetail(): CompareAndSetAccountDetail | undefined;
   setCompareAndSetAccountDetail(value?: CompareAndSetAccountDetail): void;
 
-  hasSetSettingValue(): boolean;
-  clearSetSettingValue(): void;
-  getSetSettingValue(): SetSettingValue | undefined;
-  setSetSettingValue(value?: SetSettingValue): void;
-
   getCommandCase(): Command.CommandCase;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Command.AsObject;
@@ -637,7 +579,6 @@ export namespace Command {
     addAssetQuantity?: AddAssetQuantity.AsObject,
     addPeer?: AddPeer.AsObject,
     addSignatory?: AddSignatory.AsObject,
-    engineCall?: EngineCall.AsObject,
     appendRole?: AppendRole.AsObject,
     createAccount?: CreateAccount.AsObject,
     createAsset?: CreateAsset.AsObject,
@@ -653,7 +594,6 @@ export namespace Command {
     transferAsset?: TransferAsset.AsObject,
     removePeer?: RemovePeer.AsObject,
     compareAndSetAccountDetail?: CompareAndSetAccountDetail.AsObject,
-    setSettingValue?: SetSettingValue.AsObject,
   }
 
   export enum CommandCase {
@@ -661,7 +601,6 @@ export namespace Command {
     ADD_ASSET_QUANTITY = 1,
     ADD_PEER = 2,
     ADD_SIGNATORY = 3,
-    ENGINE_CALL = 19,
     APPEND_ROLE = 4,
     CREATE_ACCOUNT = 5,
     CREATE_ASSET = 6,
@@ -677,7 +616,6 @@ export namespace Command {
     TRANSFER_ASSET = 16,
     REMOVE_PEER = 17,
     COMPARE_AND_SET_ACCOUNT_DETAIL = 18,
-    SET_SETTING_VALUE = 20,
   }
 }
 

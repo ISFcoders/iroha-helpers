@@ -482,28 +482,6 @@ export namespace PeersResponse {
   }
 }
 
-export class EngineResponse extends jspb.Message {
-  clearEngineResponseRecordsList(): void;
-  getEngineResponseRecordsList(): Array<primitive_pb.EngineResponseRecord>;
-  setEngineResponseRecordsList(value: Array<primitive_pb.EngineResponseRecord>): void;
-  addEngineResponseRecords(value?: primitive_pb.EngineResponseRecord, index?: number): primitive_pb.EngineResponseRecord;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): EngineResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: EngineResponse): EngineResponse.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: EngineResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): EngineResponse;
-  static deserializeBinaryFromReader(message: EngineResponse, reader: jspb.BinaryReader): EngineResponse;
-}
-
-export namespace EngineResponse {
-  export type AsObject = {
-    engineResponseRecordsList: Array<primitive_pb.EngineResponseRecord.AsObject>,
-  }
-}
-
 export class QueryResponse extends jspb.Message {
   hasAccountAssetsResponse(): boolean;
   clearAccountAssetsResponse(): void;
@@ -570,11 +548,6 @@ export class QueryResponse extends jspb.Message {
   getPeersResponse(): PeersResponse | undefined;
   setPeersResponse(value?: PeersResponse): void;
 
-  hasEngineResponse(): boolean;
-  clearEngineResponse(): void;
-  getEngineResponse(): EngineResponse | undefined;
-  setEngineResponse(value?: EngineResponse): void;
-
   getQueryHash(): string;
   setQueryHash(value: string): void;
 
@@ -604,7 +577,6 @@ export namespace QueryResponse {
     pendingTransactionsPageResponse?: PendingTransactionsPageResponse.AsObject,
     blockResponse?: BlockResponse.AsObject,
     peersResponse?: PeersResponse.AsObject,
-    engineResponse?: EngineResponse.AsObject,
     queryHash: string,
   }
 
@@ -623,7 +595,6 @@ export namespace QueryResponse {
     PENDING_TRANSACTIONS_PAGE_RESPONSE = 13,
     BLOCK_RESPONSE = 12,
     PEERS_RESPONSE = 14,
-    ENGINE_RESPONSE = 15,
   }
 }
 

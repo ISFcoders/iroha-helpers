@@ -438,26 +438,6 @@ export namespace QueryPayloadMeta {
   }
 }
 
-export class GetEngineResponse extends jspb.Message {
-  getTxHash(): string;
-  setTxHash(value: string): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): GetEngineResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: GetEngineResponse): GetEngineResponse.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GetEngineResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GetEngineResponse;
-  static deserializeBinaryFromReader(message: GetEngineResponse, reader: jspb.BinaryReader): GetEngineResponse;
-}
-
-export namespace GetEngineResponse {
-  export type AsObject = {
-    txHash: string,
-  }
-}
-
 export class Query extends jspb.Message {
   hasPayload(): boolean;
   clearPayload(): void;
@@ -556,11 +536,6 @@ export namespace Query {
     getGetPeers(): GetPeers | undefined;
     setGetPeers(value?: GetPeers): void;
 
-    hasGetEngineResponse(): boolean;
-    clearGetEngineResponse(): void;
-    getGetEngineResponse(): GetEngineResponse | undefined;
-    setGetEngineResponse(value?: GetEngineResponse): void;
-
     getQueryCase(): Payload.QueryCase;
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Payload.AsObject;
@@ -588,7 +563,6 @@ export namespace Query {
       getPendingTransactions?: GetPendingTransactions.AsObject,
       getBlock?: GetBlock.AsObject,
       getPeers?: GetPeers.AsObject,
-      getEngineResponse?: GetEngineResponse.AsObject,
     }
 
     export enum QueryCase {
@@ -606,7 +580,6 @@ export namespace Query {
       GET_PENDING_TRANSACTIONS = 13,
       GET_BLOCK = 14,
       GET_PEERS = 15,
-      GET_ENGINE_RESPONSE = 16,
     }
   }
 }

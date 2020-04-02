@@ -34,12 +34,6 @@ export class Peer extends jspb.Message {
   getPeerKey(): string;
   setPeerKey(value: string): void;
 
-  hasTlsCertificate(): boolean;
-  clearTlsCertificate(): void;
-  getTlsCertificate(): string;
-  setTlsCertificate(value: string): void;
-
-  getCertificateCase(): Peer.CertificateCase;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Peer.AsObject;
   static toObject(includeInstance: boolean, msg: Peer): Peer.AsObject;
@@ -54,12 +48,6 @@ export namespace Peer {
   export type AsObject = {
     address: string,
     peerKey: string,
-    tlsCertificate: string,
-  }
-
-  export enum CertificateCase {
-    CERTIFICATE_NOT_SET = 0,
-    TLS_CERTIFICATE = 3,
   }
 }
 
@@ -84,30 +72,6 @@ export namespace AccountDetailRecordId {
   export type AsObject = {
     writer: string,
     key: string,
-  }
-}
-
-export class EngineResponseRecord extends jspb.Message {
-  getCommandIndex(): number;
-  setCommandIndex(value: number): void;
-
-  getResponse(): string;
-  setResponse(value: string): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): EngineResponseRecord.AsObject;
-  static toObject(includeInstance: boolean, msg: EngineResponseRecord): EngineResponseRecord.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: EngineResponseRecord, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): EngineResponseRecord;
-  static deserializeBinaryFromReader(message: EngineResponseRecord, reader: jspb.BinaryReader): EngineResponseRecord;
-}
-
-export namespace EngineResponseRecord {
-  export type AsObject = {
-    commandIndex: number,
-    response: string,
   }
 }
 
@@ -159,7 +123,6 @@ export interface RolePermissionMap {
   CAN_GRANT_CAN_REMOVE_MY_SIGNATORY: 39;
   CAN_GRANT_CAN_TRANSFER_MY_ASSETS: 40;
   CAN_GRANT_CAN_SET_MY_ACCOUNT_DETAIL: 41;
-  ROOT: 47;
 }
 
 export const RolePermission: RolePermissionMap;
