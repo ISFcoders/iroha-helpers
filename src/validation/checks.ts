@@ -14,6 +14,39 @@ const domainPattern = /^[a-z_0-9]{1,9}$/
 const roleNamePattern = /^[a-z_0-9]{1,32}$/
 const assetNamePattern = /^[a-z_0-9]{1,32}$/
 
+function checkTxHash (txHash): ValidationResponse {
+  if (!txHash) {
+    return {
+      isValid: false,
+      reason: `txHash is Empty`
+    }
+  }
+
+  return { isValid: true }
+}
+
+function checkCallee (callee): ValidationResponse {
+  if (!callee) {
+    return {
+      isValid: false,
+      reason: `callee is Empty`
+    }
+  }
+
+  return { isValid: true }
+}
+
+function checkInput (input): ValidationResponse {
+  if (!input) {
+    return {
+      isValid: false,
+      reason: `input is Empty`
+    }
+  }
+
+  return { isValid: true }
+}
+
 function checkAmount (amount): ValidationResponse {
   const formattedAmount = Number(amount)
 
@@ -190,6 +223,9 @@ function toImplement (): ValidationResponse {
 }
 
 export default {
+  checkTxHash,
+  checkCallee,
+  checkInput,
   checkAmount,
   checkPresission,
   checkAccountName,

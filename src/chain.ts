@@ -3,6 +3,7 @@ import validate from './validation'
 import { sendTransactions } from './util'
 import * as Transaction from './proto/transaction_pb'
 import {
+  // EngineCall,
   AddSignatory,
   TransferAsset,
   AddAssetQuantity,
@@ -71,6 +72,16 @@ class TxBuilder {
       )
     )
   }
+
+  // public engineCall (params: EngineCall.AsObject): TxBuilder {
+  //   return new TxBuilder(
+  //     txHelper.addCommand(
+  //       this.tx,
+  //       'engineCall',
+  //       validate(params, ['callee', 'input'])
+  //     )
+  //   )
+  // }
 
   public addPeer (params: AddPeer.AsObject): TxBuilder {
     return new TxBuilder(

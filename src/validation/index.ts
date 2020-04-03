@@ -9,6 +9,9 @@ const allowEmpty = [
 ]
 
 const schema = {
+  txHash: checks.checkTxHash,
+  callee: checks.checkCallee,
+  input: checks.checkInput,
   amount: checks.checkAmount,
   precision: checks.checkPresission,
   accountName: checks.checkAccountName,

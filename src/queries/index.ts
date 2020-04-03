@@ -398,6 +398,33 @@ function getAssetInfo (queryOptions, params) {
 }
 
 /**
+ * getEngineResponse
+ * @param {Object} queryOptions
+ * @param {Object} params
+ * @property {String} params.assetId
+ * @link https://iroha.readthedocs.io/en/latest/develop/api/queries.html#get-asset-info
+ */
+function getEngineResponse (queryOptions, params) {
+  return sendQuery(
+    queryOptions,
+    queryHelper.addQuery(
+      queryHelper.emptyQuery(),
+      'getEngineResponse',
+      validate(params, ['txHash'])
+    ),
+    (resolve, reject, responseName, response) => {
+      if (responseName !== 'ENGINE_RESPONSE') {
+        const error = JSON.stringify(response.toObject().errorResponse)
+        return reject(new Error(`Query response error: expected=ENGINE_RESPONSE, actual=${responseName}\nReason: ${error}`))
+      }
+
+      const info = response.getEngineResponse().toObject().asset
+      resolve(info)
+    }
+  )
+}
+
+/**
  * getPeers
  * @param {Object} queryOptions
  * @link https://iroha.readthedocs.io/en/latest/develop/api/queries.html#get-peers
@@ -554,6 +581,7 @@ export default {
   getAccountAssets,
   getAccountDetail,
   getAssetInfo,
+  getEngineResponse,
   getPeers,
   getRoles,
   getRolePermissions,
