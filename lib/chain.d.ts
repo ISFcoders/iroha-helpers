@@ -1,5 +1,5 @@
 import * as Transaction from './proto/transaction_pb';
-import { AddSignatory, TransferAsset, AddAssetQuantity, CreateAsset, RemoveSignatory, SetAccountQuorum, DetachRole, GrantPermission, RevokePermission, AddPeer, CreateAccount, SetAccountDetail, CreateDomain, AppendRole, CreateRole, SubtractAssetQuantity, CompareAndSetAccountDetail, RemovePeer } from './proto/commands_pb';
+import { EngineCall, AddSignatory, TransferAsset, AddAssetQuantity, CreateAsset, RemoveSignatory, SetAccountQuorum, DetachRole, GrantPermission, RevokePermission, AddPeer, CreateAccount, SetAccountDetail, CreateDomain, AppendRole, CreateRole, SubtractAssetQuantity, CompareAndSetAccountDetail, RemovePeer } from './proto/commands_pb';
 declare class Chain {
     txs: Transaction.Transaction[];
     constructor(txs: Transaction.Transaction[]);
@@ -10,6 +10,7 @@ declare class TxBuilder {
     tx: Transaction.Transaction;
     constructor(tx?: Transaction.Transaction);
     addAssetQuantity(params: AddAssetQuantity.AsObject): TxBuilder;
+    engineCall(params: EngineCall.AsObject): TxBuilder;
     addPeer(params: AddPeer.AsObject): TxBuilder;
     addSignatory(params: AddSignatory.AsObject): TxBuilder;
     createAsset(params: CreateAsset.AsObject): TxBuilder;
