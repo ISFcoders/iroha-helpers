@@ -418,7 +418,7 @@ function getEngineResponse (queryOptions, params) {
         return reject(new Error(`Query response error: expected=ENGINE_RESPONSE, actual=${responseName}\nReason: ${error}`))
       }
 
-      const info = response.getEngineResponse().toObject().asset
+      const info = response.getEngineResponse().toObject().engineResponseRecordsList
       resolve(info)
     }
   )
