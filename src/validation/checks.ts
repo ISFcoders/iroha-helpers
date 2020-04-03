@@ -17,7 +17,7 @@ const assetNamePattern = /^[a-z_0-9]{1,32}$/
 function checkTxHash (txHash): ValidationResponse {
   if (!txHash) {
     return {
-      isValid: false,
+      isValid: true,
       reason: `txHash is Empty`
     }
   }
