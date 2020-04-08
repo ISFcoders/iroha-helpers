@@ -1,22 +1,32 @@
-# ./bin/protoc --proto_path=src/proto-src/ --js_out=import_style=commonjs,binary:src/proto src/proto-src/*.proto
--------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+TODO: EngineResponseRecord in queryHelper.ts - understand what it is for
 
-# Path to this plugin, Note this must be an abolsute path on Windows (see #15)
-PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
+------------------------------------------------------------------------------------------------------------------------
+Build grpcwebproxy:
 
-# Directory to get .proto files
-SRC_DIR="./src/proto-src"
+docker build -t grpcwebproxy .
 
-# Directory to write generated code to (.js and .d.ts files)
-OUT_DIR="./src/proto"
+Run grpcwebproxy:
 
-./bin/protoc \
-    --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" \
-    --proto_path="${SRC_DIR}" \
-    --js_out="import_style=commonjs,binary:${OUT_DIR}" \
-    --ts_out="service=grpc-web:${OUT_DIR}" \
-    "${SRC_DIR}/"*.proto
+docker run -it --rm \
+    --add-host dev.localdomain:127.0.0.1 \
+    -p 8080:8080 -p 8443:8443 \
+    grpcwebproxy
 
------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 
-EngineResponseRecord in queryHelper.ts
+Run tests:
+yarn build && npx ts-node example/index.ts
+yarn build (do it once...)
+
+npx ts-node example/index.ts
+npx ts-node example/chain.ts
+npx ts-node example/iroha-evm.ts
+npx ts-node example/test.ts
+
+------------------------------------------------------------------------------------------------------------------------
+Для подключения к grpсwebproxy нужно узнать ip docker container выполните запрос:
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+
+Инструмен для тестирования gRPC (запуск):
+grpcui -plaintext http://172.18.0.1:8081

@@ -116,8 +116,8 @@ declare function getAssetInfo(queryOptions: any, params: any): Promise<unknown>;
  * getEngineResponse
  * @param {Object} queryOptions
  * @param {Object} params
- * @property {String} params.assetId
- * @link https://iroha.readthedocs.io/en/latest/develop/api/queries.html#get-asset-info
+ * @property {String} params.txHash
+ * @link https://iroha.readthedocs.io/en/latest/develop/api/queries.html#get-engine-response
  */
 declare function getEngineResponse(queryOptions: any, params: any): Promise<unknown>;
 /**

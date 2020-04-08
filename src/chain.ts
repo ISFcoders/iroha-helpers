@@ -74,6 +74,7 @@ class TxBuilder {
   }
 
   public engineCall (params: EngineCall.AsObject): TxBuilder {
+    // console.log(txHelper.hash(this.tx))
     return new TxBuilder(
       txHelper.addCommand(
         this.tx,

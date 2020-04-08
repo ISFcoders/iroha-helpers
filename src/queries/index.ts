@@ -28,7 +28,9 @@ function sendQuery (
   // eslint-disable-next-line
   onResponse = function (resolve, reject, responseName, response) {}
 ) {
+  // console.log('query/index.ts  in function sendQuery')
   return new Promise((resolve, reject) => {
+    // console.log('query/index.ts sendQuery in Promise', queryService)
     const queryClient = queryService
 
     const queryToSend = flow(
@@ -401,8 +403,8 @@ function getAssetInfo (queryOptions, params) {
  * getEngineResponse
  * @param {Object} queryOptions
  * @param {Object} params
- * @property {String} params.assetId
- * @link https://iroha.readthedocs.io/en/latest/develop/api/queries.html#get-asset-info
+ * @property {String} params.txHash
+ * @link https://iroha.readthedocs.io/en/latest/develop/api/queries.html#get-engine-response
  */
 function getEngineResponse (queryOptions, params) {
   return sendQuery(

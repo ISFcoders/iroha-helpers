@@ -43,6 +43,7 @@
     "lodash.flow": "^3.5.0",
     "lodash.isequal": "^4.5.0",
     "lodash.isplainobject": "^4.0.6",
+    "protoc-gen-grpc": "^1.4.0",
     "ts-protoc-gen": "^0.12.0",
     "tslib": "^1.10.0"
   },
@@ -57,6 +58,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "grpc": "^1.22.2",
+    "grpc-tools": "^1.8.1",
+    "grpc_tools_node_protoc_ts": "^2.5.11",
     "husky": "^3.0.3",
     "shx": "^0.3.2",
     "typescript": "^3.5.3"

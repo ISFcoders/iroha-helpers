@@ -15,10 +15,11 @@ const roleNamePattern = /^[a-z_0-9]{1,32}$/
 const assetNamePattern = /^[a-z_0-9]{1,32}$/
 
 function checkTxHash (txHash): ValidationResponse {
-  if (!txHash) {
+  console.log(txHash.length)
+  if (txHash.length !== 64) {
     return {
-      isValid: true,
-      reason: `txHash is Empty`
+      isValid: false,
+      reason: `size txHash should be 32`
     }
   }
 

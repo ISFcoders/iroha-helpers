@@ -2,7 +2,7 @@ import { Buffer } from 'buffer'
 import { sign as signQuery, derivePublicKey } from 'ed25519.js'
 import { sha3_256 as sha3 } from 'js-sha3'
 import cloneDeep from 'lodash.clonedeep'
-import { Signature, AccountDetailRecordId } from './proto/primitive_pb'
+import { Signature, AccountDetailRecordId } from './proto/primitive_pb' // , EngineResponseRecord
 import * as Queries from './proto/queries_pb'
 import { capitalize } from './util.js'
 
@@ -44,6 +44,18 @@ const addQuery = (query, queryName, params = {}) => {
         paginationMeta.setPageSize(value.pageSize)
         paginationMeta.setFirstTxHash(value.firstTxHash)
       }
+      // if (queryName === 'getEngineResponse') {
+      //   paginationMeta = new Queries.AccountDetailPaginationMeta()
+      //   paginationMeta.setPageSize(value.pageSize)
+      //   const firstEngineResponse = new EngineResponseRecord()
+      //   firstEngineResponse.setCommandIndex(value.firstRecordId.command_index)
+      //   firstEngineResponse.setResponse(value.firstRecordId.response)
+      //   paginationMeta.setEngineResponse(value)
+      // } else {
+      //   paginationMeta = new Queries.TxPaginationMeta()
+      //   paginationMeta.setPageSize(value.pageSize)
+      //   paginationMeta.setFirstTxHash(value.firstTxHash)
+      // }
 
       payloadQuery[capitalizedKeyName](paginationMeta)
     } else {
